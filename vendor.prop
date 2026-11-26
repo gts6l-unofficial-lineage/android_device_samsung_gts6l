@@ -1,0 +1,24 @@
+# Bluetooth
+bluetooth.device.default_name=Galaxy Tab S6
+
+# Display
+# The panel scans out landscape (2560x1600, split DSI) while touch/sensors use the natural
+# portrait 1600x2560 (verified; same value as stock default.prop).
+ro.surface_flinger.primary_display_orientation=ORIENTATION_270
+
+# Fingerprint (optical under-display, Egis ET713)
+ro.vendor.fingerprint.type=udfps_optical
+# Sensor location "x|y|radius" in portrait pixels (verified on device)
+ro.vendor.fingerprint.sensor_location=800|2344|83
+# Pass UDFPS pointer down/up to the TEE (SEM_REQUEST_TOUCH_EVENT); the optical sensor only
+# starts a capture on that request (same as LineageOS a73xq, optical UDFPS)
+ro.vendor.fingerprint.request_touch_event=true
+
+# Audio: pass the display rotation to the audio HAL (as gts7l)
+ro.audio.monitorRotation=true
+
+# Audio: no compress offload, so that the speaker EQ (a software device effect) always applies
+audio.offload.disable=true
+
+# Camera (stock): API1 clients take stills through the regular capture path
+camera.disable_zsl_mode=1
