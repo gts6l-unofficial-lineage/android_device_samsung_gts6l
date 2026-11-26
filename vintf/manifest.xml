@@ -1,0 +1,26 @@
+<!--
+    Stock Samsung camera provider (vendor.samsung.hardware.camera.provider@4.0-service,
+    32-bit); entries taken from the stock vendor manifest.xml and deviceManifest.xml.
+    The provider registers ISehCameraProvider itself and aborts if that fails, so it is
+    declared here; only its init "interface" line is removed.
+    vendor.lineage.touch: interfaces the hardware/samsung touch service registers on
+    gts6l (fts1ba90a provides set_game_mode and singletap_enable; no glove, hover or keys).
+-->
+<manifest version="2.0" type="device">
+    <hal format="hidl">
+        <name>android.hardware.camera.provider</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.6::ICameraProvider/legacy/0</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.samsung.hardware.camera.provider</name>
+        <transport>hwbinder</transport>
+        <fqname>@4.0::ISehCameraProvider/legacy/0</fqname>
+    </hal>
+    <hal format="aidl">
+        <name>vendor.lineage.touch</name>
+        <version>1</version>
+        <fqname>IHighTouchPollingRate/default</fqname>
+        <fqname>ITouchscreenGesture/default</fqname>
+    </hal>
+</manifest>

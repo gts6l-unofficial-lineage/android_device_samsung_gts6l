@@ -1,0 +1,3 @@
+# Touch FOD setup from init.gts6l.rc (/sys/class/sec/tsp/cmd)
+allow vendor_init vendor_sysfs_touchscreen:dir search;
+allow vendor_init vendor_sysfs_touchscreen_writable:file w_file_perms;

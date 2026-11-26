@@ -1,0 +1,2 @@
+# Egis ET713 optical sensor (drivers/fingerprint/et7xx-spi.c, /dev/esfp0)
+allow hal_fingerprint_default fp_sensor_device:chr_file rw_file_perms;
