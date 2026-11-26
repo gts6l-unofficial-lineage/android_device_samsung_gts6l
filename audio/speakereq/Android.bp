@@ -1,0 +1,26 @@
+//
+// SPDX-FileCopyrightText: 2026 The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "libspeakereq.gts6l",
+    relative_install_path: "soundfx",
+    vendor: true,
+    compile_multilib: "both",
+    srcs: ["SpeakerEq.c"],
+    header_libs: [
+        "libaudio_system_headers",
+        "libhardware_headers",
+    ],
+    shared_libs: [
+        "libcutils",
+        "liblog",
+    ],
+    cflags: [
+        "-O2",
+        "-fvisibility=hidden",
+        "-Wall",
+        "-Werror",
+    ],
+}
