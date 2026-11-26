@@ -1,0 +1,27 @@
+Copyright (C) 2026 The LineageOS Project
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+the files in this repository except in compliance with the License. You may
+obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+This is an unofficial tree. It follows the conventions of, and contains files
+adapted from, the following official LineageOS device trees (branch
+lineage-24.0), all licensed under the Apache License 2.0 by The LineageOS
+Project:
+
+  - android_device_samsung_gts7l          (Samsung Qualcomm tablet: device layout,
+    product makefiles, settings overlay)
+  - android_device_samsung_sm8250-common  (SEPolicy conventions)
+  - android_device_samsung_exynos9820-common  (renamed stock library fix-ups)
+  - android_device_samsung_a73xq          (optical UDFPS fingerprint property)
+
+The settings overlay carries an Android Open Source Project header.
+
+The init script, the S Pen input configuration, the VINTF entries and the audio
+effects configuration are taken from the stock Samsung SM-T865 firmware
+(T865XXU6DXE1 vendor, T865XXU6DXJ1 system) and remain the property of their
+respective owners (Samsung, Qualcomm / The Linux Foundation, as stated in
+their headers).
+
+Written for this port: audio/amplifier, audio/speakereq, the touchscreen input
+configuration and the SEPolicy.
