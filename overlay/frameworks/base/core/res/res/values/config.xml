@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Backlight limits as fractions of the kernel maximum (355). The stock firmware
+         allows level 0 (2 nits); level 1 is used here so that the minimum is never
+         mistaken for "off". Levels above 255 are the panel's high brightness mode, which
+         is only reached automatically, see configs/display. -->
+    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.0028</item>
+    <item name="config_screenBrightnessSettingMaximumFloat" format="float" type="dimen">1.0</item>
+    <!-- Stock default (level 125) and dim (level 17) -->
+    <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.3521</item>
+    <item name="config_screenBrightnessDimFloat" format="float" type="dimen">0.0479</item>
+
+    <!-- Natural (colour managed, sRGB) and Vivid (panel native gamut, the stock default) -->
+    <integer-array name="config_availableColorModes">
+        <item>0</item> <!-- COLOR_MODE_NATURAL -->
+        <item>2</item> <!-- COLOR_MODE_SATURATED -->
+    </integer-array>
+</resources>
