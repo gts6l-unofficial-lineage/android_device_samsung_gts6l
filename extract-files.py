@@ -116,9 +116,14 @@ blob_fixups: blob_fixups_user_type = {
     # The provider registers ISehCameraProvider itself; drop only the init interface declaration
     'vendor/etc/init/vendor.samsung.hardware.camera.provider@4.0-service.rc': blob_fixup()
         .regex_replace(r'\s*interface vendor\.samsung\.hardware\.camera\.provider@4\.0::ISehCameraProvider legacy/0', ''),
-    # Android 17 replaces the legacy A2DP HAL module with the Bluetooth audio AIDL one
+    # Android 17 replaces the legacy A2DP HAL module with the Bluetooth audio AIDL one.
+    # The stock policy has no USB module (the stock HAL handled USB audio itself): add the AOSP one.
     'vendor/etc/audio_policy_configuration.xml': blob_fixup()
-        .regex_replace('a2dp_audio_policy_configuration.xml', 'bluetooth_audio_policy_configuration_7_0.xml'),
+        .regex_replace('a2dp_audio_policy_configuration.xml', 'bluetooth_audio_policy_configuration_7_0.xml')
+        .regex_replace(
+            r'( *)(<xi:include href="r_submix_audio_policy_configuration.xml"/>)',
+            r'\1<xi:include href="usb_audio_policy_configuration.xml"/>\r\n\1\2',
+        ),
     'vendor/etc/mixer_paths_tavil.xml': blob_fixup()
         .regex_replace(r'\s*</mixer>', mic_path_block.replace('\\', r'\\')),
 }  # fmt: skip
