@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2026 The LineageOS Project
+ * SPDX-FileCopyrightText: 2026 lunar-seal
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -48,7 +48,7 @@ static const effect_descriptor_t kDescriptor = {
         .cpuLoad = 0,
         .memoryUsage = 0,
         .name = "Speaker EQ",
-        .implementor = "The LineageOS Project",
+        .implementor = "lunar-seal",
 };
 
 struct biquad {
@@ -271,7 +271,7 @@ __attribute__((visibility("default"))) audio_effect_library_t AUDIO_EFFECT_LIBRA
         /* Device effects need the 3.1 library API. */
         .version = EFFECT_LIBRARY_API_VERSION_3_1,
         .name = "Galaxy Tab S6 LTE speaker EQ",
-        .implementor = "The LineageOS Project",
+        .implementor = "lunar-seal",
         .create_effect = lib_create,
         .release_effect = lib_release,
         .get_descriptor = lib_get_descriptor,

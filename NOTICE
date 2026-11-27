@@ -1,4 +1,5 @@
-Copyright (C) 2026 The LineageOS Project
+Copyright (C) 2026 lunar-seal and the copyright holders named in the individual
+files
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 the files in this repository except in compliance with the License. You may
@@ -23,5 +24,8 @@ effects configuration are taken from the stock Samsung SM-T865 firmware
 respective owners (Samsung, Qualcomm / The Linux Foundation, as stated in
 their headers).
 
-Written for this port: audio/amplifier, audio/speakereq, the touchscreen input
-configuration and the SEPolicy.
+Written for this port by lunar-seal, with the assistance of an AI model (see the
+commit trailers): audio/amplifier, audio/speakereq, the touchscreen input
+configuration, the thermal configuration and the SEPolicy. They are not the
+work of The LineageOS Project. The filter parameters of audio/speakereq are
+Samsung's, from the stock firmware.

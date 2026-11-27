@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2026 The LineageOS Project
+ * SPDX-FileCopyrightText: 2026 lunar-seal
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -117,7 +117,7 @@ amplifier_module_t HAL_MODULE_INFO_SYM = {
                         .hal_api_version = HARDWARE_HAL_API_VERSION,
                         .id = AMPLIFIER_HARDWARE_MODULE_ID,
                         .name = "Galaxy Tab S6 LTE speaker routing",
-                        .author = "The LineageOS Project",
+                        .author = "lunar-seal",
                         .methods = &hal_module_methods,
                 },
 };
