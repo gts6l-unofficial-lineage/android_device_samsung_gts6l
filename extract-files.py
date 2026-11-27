@@ -60,6 +60,38 @@ camera_device_impls = (
     'camera.device@3.5-impl',
 )
 
+# The stock mixer paths name the microphone routes for the stock audio HAL ("rec-main-mic",
+# "camcorder-stereo-mic", ...). The open-source HAL asks for its own device names; map those
+# for the built-in microphones onto the stock routes.
+mic_path_aliases = {
+    'handset-mic': 'rec-main-mic',
+    'speaker-mic': 'rec-main-mic',
+    'voice-rec-mic': 'rec-main-mic',
+    'camcorder-mic': 'camcorder-main-mic',
+    'unprocessed-mic': 'unprocessed-main-mic',
+    'voice-speaker-mic': 'call-speaker-mic',
+    'voice-speaker-mic-hfp': 'call-speaker-mic',
+    'dmic-endfire': 'rec-stereo-mic',
+    'speaker-dmic-endfire': 'rec-stereo-mic',
+    'speaker-dmic-broadside': 'rec-stereo-mic',
+    'handset-stereo-dmic-ef': 'rec-stereo-mic',
+    'speaker-stereo-dmic-ef': 'rec-stereo-mic',
+    'voice-rec-dmic-ef': 'rec-stereo-mic',
+    'voice-rec-dmic-ef-fluence': 'rec-stereo-mic',
+    'unprocessed-stereo-mic': 'rec-stereo-mic',
+    'voice-dmic-ef': 'call-dual-speaker-mic',
+    'voice-speaker-dmic-ef': 'call-dual-speaker-mic',
+    'voice-speaker-dmic-broadside': 'call-dual-speaker-mic',
+}
+mic_path_block = (
+    '\n    <!-- Names the open-source audio HAL uses for the built-in microphones -->\n'
+    + ''.join(
+        f'    <path name="{alias}">\n        <path name="{stock}" />\n    </path>\n'
+        for alias, stock in mic_path_aliases.items()
+    )
+    + '\n</mixer>'
+)
+
 blob_fixups: blob_fixups_user_type = {
     ('vendor/lib/libhypermotion_core.so', 'vendor/lib/libsensorlistener.so', 'vendor/lib/libvdis_core.so'): blob_fixup()
         .add_needed('libshim_sensorndkbridge.so'),
@@ -87,6 +119,8 @@ blob_fixups: blob_fixups_user_type = {
     # Android 17 replaces the legacy A2DP HAL module with the Bluetooth audio AIDL one
     'vendor/etc/audio_policy_configuration.xml': blob_fixup()
         .regex_replace('a2dp_audio_policy_configuration.xml', 'bluetooth_audio_policy_configuration_7_0.xml'),
+    'vendor/etc/mixer_paths_tavil.xml': blob_fixup()
+        .regex_replace(r'\s*</mixer>', mic_path_block.replace('\\', r'\\')),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
