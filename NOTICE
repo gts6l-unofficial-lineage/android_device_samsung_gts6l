@@ -1,9 +1,10 @@
 Copyright (C) 2026 lunar-seal and the copyright holders named in the individual
 files
 
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-the files in this repository except in compliance with the License. You may
-obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+Unless a file says otherwise or is listed under "Other terms" below, the files
+in this repository are licensed under the Apache License, Version 2.0 (the
+"License"); you may not use them except in compliance with the License. The
+full text is in the file LICENSE.
 
 This is an unofficial tree. It follows the conventions of, and contains files
 adapted from, the following official LineageOS device trees (branch
@@ -29,3 +30,37 @@ commit trailers): audio/amplifier, audio/speakereq, the touchscreen input
 configuration, the thermal configuration and the SEPolicy. They are not the
 work of The LineageOS Project. The filter parameters of audio/speakereq are
 Samsung's, from the stock firmware.
+
+
+Other terms
+-----------
+
+Not under the Apache License; the terms in the file header apply and the
+header must be kept:
+
+  - configs/audio/audio_effects.xml, init/init.gts6l.rc: copyright The Linux
+    Foundation, BSD-style licence (redistribution in source and binary form
+    permitted under the conditions in the header; no patent licence).
+
+Taken from the stock Samsung firmware without a licence statement of their
+own. They are configuration data the stock components need to run; no licence
+is granted for them here beyond what their owners allow:
+
+  - configs/idc/sec_e-pen.idc (T865XXU6DXJ1 system, usr/idc)
+  - vintf/manifest.xml (entries from T865XXU6DXE1 vendor, etc/vintf)
+  - vendor.prop (values from T865XXU6DXE1 vendor build.prop / default.prop)
+  - proprietary-files.txt (file names of the T865XXU6DXE1 vendor image)
+
+Tables computed from stock values (T865XXU6DXE1 vendor image); the numbers are
+Samsung's tuning, the files and their format are written for this port:
+
+  - configs/display/display_id_4630947232161729153.xml: brightness curve,
+    automatic brightness levels and sunlight boost threshold from the vendor
+    framework overlay (vendor/overlay/framework-res__auto_generated_rro_vendor.apk:
+    config_screenBrightnessBacklight, config_screenBrightnessNits,
+    config_autoBrightnessLevels, config_autoBrightnessDisplayValuesNits,
+    config_autoBrightnessHbmAmbientLux); thermal brightness limits from
+    etc/siop_gts6l_sm8150.xml.
+  - configs/thermal/thermal_info_config.json: skin temperature estimate
+    (sensor weights and offsets) from etc/mercury.json; thresholds from
+    etc/siop_gts6l_sm8150.xml.
