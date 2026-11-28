@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: 2026 lunar-seal
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Physical size of one pixel in micrometres: 25400 / 286.2 dpi (panel xDpi). SystemUI
+         sizes the under-display fingerprint icon (udfps_icon_size, 6 mm) with it. -->
+    <item name="pixel_pitch" format="float" type="dimen">88.75</item>
+</resources>
