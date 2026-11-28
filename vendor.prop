@@ -17,8 +17,6 @@ ro.vendor.fingerprint.request_touch_event=true
 # Audio: pass the display rotation to the audio HAL (as gts7l)
 ro.audio.monitorRotation=true
 
-# Audio: no compress offload, so that the speaker EQ (a software device effect) always applies
-audio.offload.disable=true
 
 # Camera (stock): API1 clients take stills through the regular capture path
 camera.disable_zsl_mode=1
