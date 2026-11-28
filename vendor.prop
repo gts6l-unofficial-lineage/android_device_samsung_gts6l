@@ -8,11 +8,14 @@ ro.surface_flinger.primary_display_orientation=ORIENTATION_270
 
 # Fingerprint (optical under-display, Egis ET713)
 ro.vendor.fingerprint.type=udfps_optical
-# Sensor location "x|y|radius" in portrait pixels (verified on device)
-ro.vendor.fingerprint.sensor_location=800|2344|83
+# Sensor location "x|y|radius" in portrait pixels: centred where stock Samsung centres it
+# (bottom margin + sensor height / 2, from /sys/class/fingerprint/fingerprint/position)
+ro.vendor.fingerprint.sensor_location=800|2386|83
 # Pass UDFPS pointer down/up to the TEE (SEM_REQUEST_TOUCH_EVENT); the optical sensor only
 # starts a capture on that request (same as LineageOS a73xq, optical UDFPS)
 ro.vendor.fingerprint.request_touch_event=true
+# Wait for the panel's finger-mask brightness before starting a capture
+ro.vendor.fingerprint.mask_brightness_path=/sys/class/lcd/panel/actual_mask_brightness
 
 # Audio: pass the display rotation to the audio HAL (as gts7l)
 ro.audio.monitorRotation=true

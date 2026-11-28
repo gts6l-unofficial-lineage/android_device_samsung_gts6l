@@ -142,7 +142,7 @@ on boot
     # UDFPS pressed layer is shown (verified on device)
     chown system system /sys/class/lcd/panel/mask_brightness
     write /sys/class/lcd/panel/mask_brightness 319
-    # Touch FOD: enable FOD reporting and set the sensor rect (centre 800,2344 +- 83)
-    # (verified on device)
+    # Touch FOD: enable FOD reporting and set the sensor rect (centre 800,2386 +- 83, the
+    # stock position)
     write /sys/class/sec/tsp/cmd "fod_enable,1,1,0"
-    write /sys/class/sec/tsp/cmd "set_fod_rect,717,2261,883,2427"
+    write /sys/class/sec/tsp/cmd "set_fod_rect,717,2303,883,2469"
